@@ -1,6 +1,6 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "Parliament Debates Analyzer",
+  "name": "Parliament Debates",
   "icons": [
     {
       "src": "favicon.ico",

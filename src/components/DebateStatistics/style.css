@@ -1,0 +1,10 @@
+#debate-statistics-section {
+    padding-left: 5vw;
+    padding-right: 5vw;
+}
+
+#debate-statistics-section__cards {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
