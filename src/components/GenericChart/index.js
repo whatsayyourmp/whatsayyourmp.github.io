@@ -1,5 +1,6 @@
 import React from 'react';
 import CanvasJSReact from '@canvasjs/react-charts';
+import './index.css';
 
 const CanvasJS = CanvasJSReact.CanvasJS;
 const CanvasJSChart = CanvasJSReact.CanvasJSChart;
@@ -44,6 +45,9 @@ const COLOR_LOOKUP_TABLE = {
     'Personal Explanation': COLORS.TURQUOISE,
 };
 
+const ONE_MP_SELECTED = 1;
+const NO_TICKS = 0;
+const ONE_TICK_PER_MP = 1;
 
 function transformDataForChartJSGraph(debatesCount) {
     const output = {};
@@ -117,7 +121,8 @@ function calculateHeight(dataLength) {
 const GenericChart = ({ debatesCount }) => {
     const dataForChartJSGraph = transformDataForChartJSGraph(debatesCount)
 
-    const height = calculateHeight(countNumberOfUniqueMPs(debatesCount))
+    const numberOfUniqueMPsSelected = countNumberOfUniqueMPs(debatesCount)
+    const height = calculateHeight(numberOfUniqueMPsSelected)
     const containerProps = {
         height: height
     }
@@ -137,13 +142,19 @@ const GenericChart = ({ debatesCount }) => {
     const options = {
         height,
         toolTip: {
-            shared: true
+            shared: true,
         },
         legend: {
             verticalAlign: "top"
         },
         axisX: {
-            interval: 1,
+            // required to ensure that '-1', and '1' ticks do not show up on the axis
+            // when only one MP is selected
+            interval: numberOfUniqueMPsSelected === ONE_MP_SELECTED ? NO_TICKS : ONE_TICK_PER_MP,
+        },
+        axisY: {
+            gridThickness: 0,
+            tickLength: 5,
         },
         data: barChartData,
     }

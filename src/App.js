@@ -115,7 +115,7 @@ function App() {
         <h1>What Say Your MP</h1>
       </header>
       <div>
-        <p>
+        <p style={{ padding: 10, paddingLeft: 15, paddingRight: 15 }}>
           This project uses the{' '}
           <a href="https://www.parliament.gov.sg/parliamentary-business/official-reports-(parl-debates)">
             official reports

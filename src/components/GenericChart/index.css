@@ -1,0 +1,7 @@
+.canvasjs-chart-tooltip {
+    max-width: 90vw;
+}
+
+.canvasjs-chart-tooltip > div {
+    white-space: pre-wrap !important;
+}
