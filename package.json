@@ -29,6 +29,7 @@
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build",
     "start": "NODE_OPTIONS=--openssl-legacy-provider PORT=9090 react-scripts start",
+    "start:local": "NODE_OPTIONS=--openssl-legacy-provider PORT=9090 NODE_ENV=local react-scripts start",
     "build": "react-scripts build",
     "test": "echo \"no script for testing setup yet.\"",
     "eject": "react-scripts eject",
