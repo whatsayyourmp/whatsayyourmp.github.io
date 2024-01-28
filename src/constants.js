@@ -4,13 +4,15 @@ const PARLIAMENT_START_DATE = '2020-08-24';
 
 const stage = process.env.NODE_ENV;
 
+const localHostName = process.env.HOST ?? 'localhost'
+
 const GET_COUNTS_PER_MP_FOR_DATE_RANGE_URL_PER_STAGE = {
-  default: 'http://localhost:6969/counts-per-mp',
+  default: `http://${localHostName}:6969/counts-per-mp`,
   production: 'https://hidden-pad-313204.as.r.appspot.com/counts-per-mp',
 };
 
 const GET_CURRENT_MPS_URL_PER_STAGE = {
-  default: 'http://localhost:6969/current-mps',
+  default: `http://${localHostName}:6969/current-mps`,
   production: 'https://hidden-pad-313204.as.r.appspot.com/current-mps',
 };
 

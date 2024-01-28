@@ -1,11 +1,12 @@
 import { useEffect, useState } from 'react';
 import { getCurrentMPs, getCountsPerMPForDateRange } from './services/index';
 import './App.css';
-import DebateStatistics from './components/DebateStatistics';
+// import DebateStatistics from './components/DebateStatistics';
 import SelectStatsFilters from './components/SelectStatsFilters';
 import LoadFailSnackbar from './components/LoadFailSnackbar';
 import Constants from './constants';
 import MPLoadFailSnackbar from './components/MPLoadFailSnackbar';
+import GenericChart from './components/GenericChart';
 
 const transformDebatesCountV2 = (countPerReportTypePerMp) => {
   const uniqueReportTypes = [];
@@ -136,7 +137,13 @@ function App() {
             <p>No results from the selection filter</p>
           </div>
         )}
-        {isCountLoading ? (
+        {/* Doing some very unscientific AB testing on the two types of charts */}
+        {
+          isCountLoading ? (
+            <p>Loading...</p>
+          ) : isAnyCountLoaded && <GenericChart debatesCount={debatesCount} />
+        }
+        {/* {isCountLoading ? (
           <p>Loading...</p>
         ) : (
           isAnyCountLoaded && (
@@ -145,18 +152,18 @@ function App() {
               uniqueReportTypes={uniqueSittingDates}
             />
           )
-        )}
-        <SelectStatsFilters
-          authors={authors}
-          selectedMPsForCount={selectedMPsForCount}
-          selectMPsForCount={selectMPsForCount}
-          startDateForCount={startDateForCount}
-          selectStartDateForCount={selectStartDateForCount}
-          endDateForCount={endDateForCount}
-          selectEndDateForCount={selectEndDateForCount}
-          isLoading={isCountLoading}
-        />
+        )} */}
       </div>
+      <SelectStatsFilters
+        authors={authors}
+        selectedMPsForCount={selectedMPsForCount}
+        selectMPsForCount={selectMPsForCount}
+        startDateForCount={startDateForCount}
+        selectStartDateForCount={selectStartDateForCount}
+        endDateForCount={endDateForCount}
+        selectEndDateForCount={selectEndDateForCount}
+        isLoading={isCountLoading}
+      />
       <footer className="note">
         <p>
           Made for the collective knowledge of Singaporeans and the betterment

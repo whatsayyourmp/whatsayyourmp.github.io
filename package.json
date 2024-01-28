@@ -3,6 +3,8 @@
   "version": "0.1.0",
   "homepage": "https://whatsayyourmp.github.io",
   "dependencies": {
+    "@canvasjs/charts": "^3.7.35",
+    "@canvasjs/react-charts": "^1.0.0",
     "@emotion/react": "^11.11.3",
     "@emotion/styled": "^11.11.0",
     "@mui/icons-material": "^5.15.5",
@@ -19,7 +21,7 @@
     "react-query": "^3.39.3",
     "react-scripts": "4.0.3",
     "react-select-search": "^3.0.10",
-    "recharts": "^2.0.9",
+    "recharts": "^2.10.4",
     "web-vitals": "^1.1.2"
   },
   "scripts": {
@@ -29,7 +31,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "lint": "eslint . --ext .js",
+    "lint": "eslint --fix . --ext .js",
     "lint:fix": "eslint --fix . --ext .js"
   },
   "eslintConfig": {
