@@ -1,0 +1,17 @@
+.multiSelect {
+    width: 50vw;
+}
+
+.multiSelect * {
+    z-index: 1000;
+}
+
+/* Mobile */
+@media (max-width: 700px) {
+    .multiSelect {
+        width: 90vw;
+    }
+}
+
+/* Tablet and Smaller Desktop */
+@media (min-width: 701px) and (max-width: 1120px) {}

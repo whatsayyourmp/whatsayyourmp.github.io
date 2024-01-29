@@ -1,0 +1,20 @@
+.App {
+  text-align: center;
+}
+
+.App header,
+.App footer,
+.App h2 {
+  background-color: #e3e3e3;
+  padding-top: 1vmin;
+  padding-bottom: 1vmin;
+}
+
+.App h2 {
+  padding-top: 2vmin;
+  padding-bottom: 2vmin;
+}
+
+.App footer {
+  font-size: 12px;
+}

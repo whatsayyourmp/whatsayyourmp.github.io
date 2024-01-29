@@ -1,0 +1,24 @@
+#select-stats-filters {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 5vw;
+    padding-right: 5vw;
+    padding-top: 5vh;
+    padding-bottom: 10vh;
+}
+
+@media screen and (max-width: 500px) {
+    #select-stats-filters {
+        flex-direction: column;
+        justify-content: space-between;
+    }
+}
+
+@media screen and (min-width: 501px) and (max-width: 700px) {
+    #select-stats-filters {
+        flex-direction: column;
+        justify-content: space-between;
+    }
+}

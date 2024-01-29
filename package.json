@@ -1,24 +1,49 @@
 {
   "name": "whatsayyourmp",
   "version": "0.1.0",
-  "private": true,
+  "homepage": "https://whatsayyourmp.github.io",
   "scripts": {
-    "dev": "next dev",
+    "prepare": "husky",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
+    "dev": "NODE_OPTIONS=--openssl-legacy-provider PORT=9090 next dev",
+    "dev:local": "NODE_OPTIONS=--openssl-legacy-provider PORT=9090 NODE_ENV=test next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "test": "echo \"no script for testing setup yet.\""
   },
   "dependencies": {
+    "@canvasjs/react-charts": "^1.0.0",
+    "@emotion/react": "^11.11.3",
+    "@emotion/styled": "^11.11.0",
+    "@mpth/react-no-ssr": "^1.0.1",
+    "@mui/icons-material": "^5.15.5",
+    "@mui/material": "^5.15.3",
+    "@mui/x-data-grid": "^6.18.7",
+    "@mui/x-date-pickers": "^6.18.7",
+    "@nextui-org/react": "^2.2.9",
+    "@sentry/react": "^7.98.0",
+    "axios": "^1.6.7",
+    "dayjs": "^1.11.10",
+    "next": "14.1.0",
     "react": "^18",
     "react-dom": "^18",
-    "next": "14.1.0"
+    "react-multi-select-component": "^4.3.4",
+    "recharts": "^2.11.0"
   },
   "devDependencies": {
-    "typescript": "^5",
+    "@commitlint/cli": "^18.6.0",
+    "@commitlint/config-conventional": "^18.6.0",
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
     "eslint": "^8",
-    "eslint-config-next": "14.1.0"
+    "eslint-config-next": "14.1.0",
+    "eslint-config-prettier": "^9.1.0",
+    "gh-pages": "^6.1.1",
+    "husky": "^9.0.6",
+    "prettier": "^2.8.8",
+    "typescript": "^5"
   }
 }
