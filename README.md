@@ -30,3 +30,4 @@ The steps below are all written for users with NPM set up in mind.
   * [How to deploy a Next.js App to GitHub Pages](https://github.com/gregrickaby/nextjs-github-pages)
 * [Commitlint setup](https://commitlint.js.org/#/./guides-local-setup?id=guides-local-setup)
 * [Next.js setup](https://nextjs.org/docs/getting-started/installation)
+* [How to write unit tests in TypeScript](https://bootcamp.uxdesign.cc/how-to-write-test-cases-in-typescript-fa7a263b7833)
