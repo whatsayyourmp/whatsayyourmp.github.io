@@ -1,11 +1,10 @@
-import { CountsForMP } from '@/app/types/common';
+import { CountsForMPs } from '@/app/types/common';
 import { ChartJSGraphData } from './types';
 
-export function transformDataForChartJSGraph(debatesCount: CountsForMP[]): ChartJSGraphData {
+export function transformDataForChartJSGraph(countsForMPs: CountsForMPs): ChartJSGraphData {
     const output = {} as ChartJSGraphData;
 
-    debatesCount.forEach((countPerMP) => {
-        const { name: mpName, counts: countsPerType } = countPerMP;
+    Object.entries(countsForMPs).forEach(([mpName, countsPerType]) => {
         Object.keys(countsPerType).forEach((reportType) => {
             if (!output[reportType]) {
                 output[reportType] = [{ label: mpName, y: countsPerType[reportType] }];
@@ -17,7 +16,7 @@ export function transformDataForChartJSGraph(debatesCount: CountsForMP[]): Chart
 
     // this is required to avoid having duplicate y-axis labels - 
     //  must zero-pad count for each report type if MPs did not participate in them
-    const allUniqueMPsProvided = getUniqueMPs(debatesCount);
+    const allUniqueMPsProvided = getUniqueMPs(countsForMPs);
     Object.values(output).forEach((countsPerMp) => {
         const uniqueMpsForReportType = countsPerMp.map(countPerMP => countPerMP.label);
         allUniqueMPsProvided.forEach(uniqueMp => {
@@ -40,12 +39,10 @@ export function transformDataForChartJSGraph(debatesCount: CountsForMP[]): Chart
     return output;
 }
 
-export function getUniqueMPs(input: CountsForMP[]): string[] {
+export function getUniqueMPs(input: CountsForMPs): string[] {
     const mps: string[] = [];
 
-    input.forEach((inputDatum) => {
-        const { name } = inputDatum;
-
+    Object.keys(input).forEach((name) => {
         if (mps.includes(name)) {
             return;
         }
@@ -56,7 +53,7 @@ export function getUniqueMPs(input: CountsForMP[]): string[] {
     return mps;
 }
 
-export function countNumberOfUniqueMPs(input: CountsForMP[]) {
+export function countNumberOfUniqueMPs(input: CountsForMPs) {
     const mps = getUniqueMPs(input);
 
     return mps.length;

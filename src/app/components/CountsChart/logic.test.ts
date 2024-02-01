@@ -1,8 +1,8 @@
-import { CountsForMP } from "@/app/types/common";
+import { CountsForMPs } from "@/app/types/common";
 import { transformDataForChartJSGraph } from "./logic";
 
 test('transformDataForChartJSGraph transforms correctly for empty input', () => {
-    const input: CountsForMP[] = []
+    const input: CountsForMPs = {}
 
     const expectedOutput = {}
 
@@ -10,12 +10,9 @@ test('transformDataForChartJSGraph transforms correctly for empty input', () => 
 });
 
 test('transformDataForChartJSGraph transforms correctly for 1 MP with no counts', () => {
-    const input = [
-        {
-            name: 'Tan Ah Gao',
-            counts: {},
-        }
-    ]
+    const input = {
+        'Tan Ah Gao': {}
+    }
 
     const expectedOutput = {}
 
@@ -23,14 +20,11 @@ test('transformDataForChartJSGraph transforms correctly for 1 MP with no counts'
 });
 
 test('transformDataForChartJSGraph transforms correctly for 1 MP with 1 report type', () => {
-    const oneMpAndOneReportType = [
-        {
-            name: 'Tan Ah Gao',
-            counts: {
-                oral: 69,
-            }
+    const oneMpAndOneReportType = {
+        'Tan Ah Gao': {
+            oral: 69,
         }
-    ]
+    }
 
     const oneMpAndOneReportTypeOutput = {
         oral: [
@@ -45,15 +39,12 @@ test('transformDataForChartJSGraph transforms correctly for 1 MP with 1 report t
 });
 
 test('transformDataForChartJSGraph transforms correctly for 1 MP with 2 report types', () => {
-    const oneMpAndTwoReportTypes = [
-        {
-            name: 'Tan Ah Gao',
-            counts: {
-                oral: 69,
-                written: 420,
-            }
+    const oneMpAndTwoReportTypes = {
+        'Tan Ah Gao': {
+            oral: 69,
+            written: 420,
         }
-    ]
+    }
 
     const oneMpAndTwoReportTypesOutput = {
         oral: [
@@ -74,20 +65,14 @@ test('transformDataForChartJSGraph transforms correctly for 1 MP with 2 report t
 });
 
 test('transformDataForChartJSGraph transforms correctly for 2 MPs, both with 1 same report type', () => {
-    const twoMpsAndOneSharedReportType = [
-        {
-            name: 'Muthu',
-            counts: {
-                oral: 200,
-            }
+    const twoMpsAndOneSharedReportType = {
+        'Muthu': {
+            oral: 200,
         },
-        {
-            name: 'Tan Ah Gao',
-            counts: {
-                oral: 69,
-            }
-        },
-    ]
+        'Tan Ah Gao': {
+            oral: 69,
+        }
+    }
 
     const twoMpsAndOneSharedReportTypeOutput = {
         oral: [
@@ -109,20 +94,14 @@ test('transformDataForChartJSGraph transforms correctly for 2 MPs, both with 1 s
 test('transformDataForChartJSGraph zero-pads the reportType an MP did not participate in,'
     + ' for 2 MPs both with 1 different report type. '
     + ' This is required to maintain array index of each MP across each array of counts per report type.', () => {
-        const twoMpsAndOneDifferentReportType: CountsForMP[] = [
-            {
-                name: 'Muthu',
-                counts: {
-                    written: 200,
-                }
+        const twoMpsAndOneDifferentReportType: CountsForMPs = {
+            'Muthu': {
+                written: 200,
             },
-            {
-                name: 'Tan Ah Gao',
-                counts: {
-                    oral: 69,
-                }
-            },
-        ]
+            'Tan Ah Gao': {
+                oral: 69,
+            }
+        }
 
         const twoMpsAndOneSharedReportTypeOutput = {
             oral: [
@@ -149,25 +128,19 @@ test('transformDataForChartJSGraph zero-pads the reportType an MP did not partic
 
         expect(transformDataForChartJSGraph(twoMpsAndOneDifferentReportType))
             .toStrictEqual(twoMpsAndOneSharedReportTypeOutput);
-    });
+});
 
 test('transformDataForChartJSGraph transforms correctly for 2 MPs with two shared report types', () => {
-    const twoMpsAndTwoSharedReportTypes: CountsForMP[] = [
-        {
-            name: 'Muthu',
-            counts: {
-                written: 200,
-                oral: 10,
-            }
+    const twoMpsAndTwoSharedReportTypes: CountsForMPs = {
+        'Muthu': {
+            written: 200,
+            oral: 10,
         },
-        {
-            name: 'Tan Ah Gao',
-            counts: {
-                oral: 69,
-                written: 40
-            }
-        },
-    ]
+        'Tan Ah Gao': {
+            oral: 69,
+            written: 40,
+        }
+    }
 
     const twoMpsAndTwoSharedReportTypesOutput = {
         oral: [
@@ -198,22 +171,16 @@ test('transformDataForChartJSGraph transforms correctly for 2 MPs with two share
 
 test('transformDataForChartJSGraph transforms correctly for 2 MPs with  ' +
     'one shared report type and one distinct report type each', () => {
-        const input: CountsForMP[] = [
-            {
-                name: 'Muthu',
-                counts: {
-                    written: 200,
-                    budget: 10,
-                }
+        const input: CountsForMPs = {
+            'Muthu': {
+                written: 200,
+                budget: 10,
             },
-            {
-                name: 'Tan Ah Gao',
-                counts: {
-                    motion: 69,
-                    written: 40
-                }
-            },
-        ]
+            'Tan Ah Gao': {
+                motion: 69,
+                written: 40,   
+            }
+        }
 
         const expectedOutput = {
             motion: [

@@ -2,7 +2,7 @@ import React from 'react';
 // @ts-ignore
 import CanvasJSReact from '@canvasjs/react-charts';
 import style from './style.module.css';
-import { CountsForMP } from '@/app/types/common';
+import { CountsForMPs } from '@/app/types/common';
 import {
     transformDataForChartJSGraph,
     countNumberOfUniqueMPs,
@@ -56,12 +56,19 @@ const ONE_MP_SELECTED = 1;
 const NO_TICKS = 0;
 const ONE_TICK_PER_MP = 1;
 
-type GenericChartProps = {
-    debatesCount: CountsForMP[]
+type CountsChartProps = {
+    debatesCount: CountsForMPs
 }
 
-const GenericChart = ({ debatesCount }: GenericChartProps) => {
+const CountsChart = ({ debatesCount }: CountsChartProps) => {
     const dataForChartJSGraph = transformDataForChartJSGraph(debatesCount)
+    if (Object.keys(dataForChartJSGraph).length === 0) {
+        return (
+            <div>
+                <p>No results from the selection filter</p>
+            </div>
+        )
+    }
 
     const numberOfUniqueMPsSelected = countNumberOfUniqueMPs(debatesCount)
     const height = calculateHeight(numberOfUniqueMPsSelected)
@@ -113,4 +120,4 @@ const GenericChart = ({ debatesCount }: GenericChartProps) => {
     );
 }
 
-export default GenericChart;
+export default CountsChart;

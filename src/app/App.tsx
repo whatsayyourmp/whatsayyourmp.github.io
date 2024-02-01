@@ -7,7 +7,7 @@ import { Dayjs } from 'dayjs';
 
 import styles from "./app.module.css";
 import constants from "./constants";
-import { CountsForMP, CountsForMPs, MP } from './types/common';
+import { CountsForMPs, MP } from './types/common';
 import SelectStatsFilters from './components/SelectStatsFilters';
 
 const CountsChart = dynamic(() => import('./components/CountsChart'), { ssr: false })
@@ -16,36 +16,10 @@ import LoadFailSnackbar from './components/LoadFailSnackbar';
 
 import { getCountsPerMPForDateRange, getCurrentMPs } from './services';
 
-const transformDebatesCountV2 = (countPerReportTypePerMp: CountsForMPs): [CountsForMP[], string[]] => {
-  const uniqueReportTypes: string[] = [];
-
-  for (const mpName in countPerReportTypePerMp) {
-    const countsPerMP = countPerReportTypePerMp[mpName];
-    if (!countPerReportTypePerMp[mpName]) {
-      countPerReportTypePerMp[mpName] = {};
-    }
-
-    for (const reportType in countsPerMP) {
-      if (!uniqueReportTypes.includes(reportType)) {
-        uniqueReportTypes.push(reportType);
-      }
-    }
-  }
-
-  const transformedDebatesCount = [];
-  const keys = Object.keys(countPerReportTypePerMp);
-  const values = Object.values(countPerReportTypePerMp);
-  for (let i = 0; i < Object.entries(countPerReportTypePerMp).length; i++) {
-    transformedDebatesCount.push({ name: keys[i], counts: values[i] });
-  }
-  return [transformedDebatesCount, uniqueReportTypes];
-};
-
 export default function App() {
   const [authors, setAuthors] = useState([] as MP[]);
   const [selectedMPsForCount, setSelectedMPsForCount] = useState([] as string[]);
-  const [debatesCount, setDebatesCount] = useState([] as CountsForMP[]);
-  const [uniqueSittingDates, setUniqueReportTypes] = useState([] as string[]);
+  const [debatesCount, setDebatesCount] = useState({} as CountsForMPs);
   const [isCountLoading, setIsCountLoading] = useState(false);
   const [startDateForCount, setStartDateForCount] = useState(
     constants.DEFAULT_COUNT_RANGE_START_DATE,
@@ -90,10 +64,7 @@ export default function App() {
       localStorage.getItem('DEVELOPER_API_KEY') ?? undefined,
     )
       .then((response) => {
-        const [transformedDebatesCount, uniqueReportTypes] =
-          transformDebatesCountV2(response.data);
-        setDebatesCount(transformedDebatesCount);
-        setUniqueReportTypes(uniqueReportTypes);
+        setDebatesCount(response.data);
       })
       .catch((error) => {
         // TODO: catch such errors at Sentry
@@ -116,7 +87,6 @@ export default function App() {
   };
 
   const isAtLeastOneMPSelected = selectedMPsForCount.length > 0;
-  const isAnyCountLoaded = uniqueSittingDates.length > 0;
 
   return (
     <NoSSR>
@@ -144,15 +114,10 @@ export default function App() {
               <p>Please Select Some MPs</p>
             </div>
           )}
-          {isAtLeastOneMPSelected && !isCountLoading && !isAnyCountLoaded && (
-            <div>
-              <p>No results from the selection filter</p>
-            </div>
-          )}
           {
             isCountLoading ? (
               <p>Loading...</p>
-            ) : isAnyCountLoaded && <CountsChart debatesCount={debatesCount} />
+            ) : isAtLeastOneMPSelected && <CountsChart debatesCount={debatesCount} />
           }
         </div>
         <SelectStatsFilters
