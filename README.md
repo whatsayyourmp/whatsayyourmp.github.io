@@ -31,3 +31,4 @@ The steps below are all written for users with NPM set up in mind.
 * [Commitlint setup](https://commitlint.js.org/#/./guides-local-setup?id=guides-local-setup)
 * [Next.js setup](https://nextjs.org/docs/getting-started/installation)
 * [How to write unit tests in TypeScript](https://bootcamp.uxdesign.cc/how-to-write-test-cases-in-typescript-fa7a263b7833)
+* [How to transform SVGs to React component (so that it is easy to make them responsive)](https://www.educative.io/answers/how-to-transform-an-svg-into-a-react-component-with-svgr)

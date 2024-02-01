@@ -5,7 +5,7 @@ import "./globals.css";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "What Say Your MP",
+  title: "What Say Your MP?",
   description: "A website for checking on the involvement of each Singaporean MP in Parliament.",
 };
 

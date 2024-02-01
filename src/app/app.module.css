@@ -18,3 +18,25 @@
 .App footer {
   font-size: 12px;
 }
+
+.WhatSaysYourMPLogo {
+  max-width: 30vw;
+  margin: 0 auto;
+  padding-top: 20px;
+  padding-bottom: 10px;
+  position: relative 
+}
+
+/* Mobile */
+@media (max-width: 700px) {
+  .WhatSaysYourMPLogo {
+    max-width: 75vw;
+  }
+}
+
+/* Tablet and Smaller Desktop */
+@media (min-width: 701px) and (max-width: 1120px) {
+  .WhatSaysYourMPLogo {
+    max-width: 50vw;
+  }
+}

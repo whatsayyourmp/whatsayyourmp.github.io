@@ -15,6 +15,7 @@ import MPLoadFailSnackbar from './components/MPLoadFailSnackbar';
 import LoadFailSnackbar from './components/LoadFailSnackbar';
 
 import { getCountsPerMPForDateRange, getCurrentMPs } from './services';
+import WhatSayYourMPLogo from './svgs/WhatSayYourMPLogo';
 
 export default function App() {
   const [authors, setAuthors] = useState([] as MP[]);
@@ -93,10 +94,13 @@ export default function App() {
       <div className={styles.App}>
         <header>
           <h1>
-            What Say Your MP
+            What Say Your MP?
           </h1>
         </header>
         <div>
+          <div className={styles.WhatSaysYourMPLogo}>
+            <WhatSayYourMPLogo />
+          </div>
           <p style={{ padding: 10, paddingLeft: 15, paddingRight: 15 }}>
             This project uses the{' '}
             <a href="https://www.parliament.gov.sg/parliamentary-business/official-reports-(parl-debates)">
@@ -111,7 +115,7 @@ export default function App() {
           <h2>Overall Statistics</h2>
           {!isAtLeastOneMPSelected && !isCountLoading && (
             <div>
-              <p>Please Select Some MPs</p>
+              <p style={{ paddingTop: 10 }}> Please Select Some MPs</p>
             </div>
           )}
           {
@@ -130,9 +134,10 @@ export default function App() {
           selectEndDateForCount={selectEndDateForCount}
           isLoading={isCountLoading}
         />
-        <footer>
+        <footer style={{ paddingLeft: 10, paddingRight: 10, paddingTop: 5 }}>
           <p>
-            Made for the collective knowledge of Singaporeans and the betterment
+            This is a community-led project - the contributors have no link with the Singapore Government.
+            It is made for the collective knowledge of Singaporeans and the betterment
             of Singaporean Democracy 🇸🇬
           </p>
           <p>
