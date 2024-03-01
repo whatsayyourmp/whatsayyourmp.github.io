@@ -32,6 +32,14 @@ const MPMultiDropdown = ({
     [selectedMPs]
   );
 
+  const selectValueRenderer = (selectedMPs: string[]) => {
+    if (selectedMPs.length === 0) {
+        // eslint-disable-next-line react/display-name
+        return () => <span className="gray">Select MPs To Count</span>
+    }
+    return undefined
+  }
+
   return (
     <MultiSelect
       className={style.multiSelect}
@@ -40,6 +48,7 @@ const MPMultiDropdown = ({
       value={selectedMPOptions}
       onChange={(props: any) => selectMPs(props.map(({ label }: { label: any }) => label))}
       labelledBy={authorsLoaded ? placeholderMessage : loadingMessage}
+      valueRenderer={selectValueRenderer(selectedMPs)}
       disabled={isLoading}
     />
   );

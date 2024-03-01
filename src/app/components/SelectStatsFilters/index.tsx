@@ -2,6 +2,7 @@ import MPMultiDropdown from '../MPMultiDropdown';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import DateRangePicker from '../DateRangePicker';
+import ReportTypeFilter from '../ReportTypeFilter';
 
 import styles from './style.module.css';
 import { Dayjs } from 'dayjs';
@@ -15,6 +16,9 @@ type SelectStatsFiltersProps = {
   selectStartDateForCount: any,
   endDateForCount: Dayjs,
   selectEndDateForCount: any,
+  possibleReportTypes: string[],
+  selectedReportTypesForCount: string[],
+  selectReportTypes: Function,
   isLoading: boolean
 }
 
@@ -26,6 +30,9 @@ const SelectStatsFilters = ({
   selectStartDateForCount,
   endDateForCount,
   selectEndDateForCount,
+  possibleReportTypes,
+  selectedReportTypesForCount,
+  selectReportTypes,
   isLoading,
 }: SelectStatsFiltersProps) => {
   return (
@@ -45,6 +52,12 @@ const SelectStatsFilters = ({
           isLoading={isLoading}
         />
       </LocalizationProvider>
+      <ReportTypeFilter
+        possibleReportTypes={possibleReportTypes}
+        selectedReportTypesForCount={selectedReportTypesForCount}
+        selectReportTypes={selectReportTypes}
+        isLoading={isLoading}
+      />
     </div>
   );
 };

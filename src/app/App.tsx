@@ -17,10 +17,12 @@ import LoadFailSnackbar from './components/LoadFailSnackbar';
 import { getCountsPerMPForDateRange, getCurrentMPs } from './services';
 import WhatSayYourMPLogo from './svgs/WhatSayYourMPLogo';
 import FAQ from './components/FAQ/FAQ';
+import { filterCountsForMPsByReportTypes, getUniqueReportTypes } from './logic';
 
 export default function App() {
   const [authors, setAuthors] = useState([] as MP[]);
   const [selectedMPsForCount, setSelectedMPsForCount] = useState([] as string[]);
+  const [selectedReportTypes, setSelectedReportTypes] = useState([] as string[]);
   const [debatesCount, setDebatesCount] = useState({} as CountsForMPs);
   const [isCountLoading, setIsCountLoading] = useState(false);
   const [startDateForCount, setStartDateForCount] = useState(
@@ -76,6 +78,11 @@ export default function App() {
       .finally(() => setIsCountLoading(false));
   }, [isCountLoading, selectedMPsForCount, startDateForCount, endDateForCount]);
 
+  useEffect(() => {
+    // For UX, re-select all the possible report types whenever the selected MPs change
+    setSelectedReportTypes(getUniqueReportTypes(debatesCount))
+  }, [debatesCount])
+
   const selectMPsForCount = (justSelectedMPsForCount: SetStateAction<string[]>) => {
     setSelectedMPsForCount(justSelectedMPsForCount);
   };
@@ -122,7 +129,11 @@ export default function App() {
           {
             isCountLoading ? (
               <p>Loading...</p>
-            ) : isAtLeastOneMPSelected && <CountsChart debatesCount={debatesCount} />
+            ) : isAtLeastOneMPSelected && <CountsChart 
+                                            debatesCount={
+                                              filterCountsForMPsByReportTypes(debatesCount, selectedReportTypes)
+                                            }
+                                          />
           }
         </div>
         <SelectStatsFilters
@@ -133,6 +144,9 @@ export default function App() {
           selectStartDateForCount={selectStartDateForCount}
           endDateForCount={endDateForCount}
           selectEndDateForCount={selectEndDateForCount}
+          possibleReportTypes={getUniqueReportTypes(debatesCount)}
+          selectedReportTypesForCount={selectedReportTypes}
+          selectReportTypes={setSelectedReportTypes}
           isLoading={isCountLoading}
         />
         <FAQ />
