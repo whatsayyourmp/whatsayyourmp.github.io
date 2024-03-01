@@ -16,6 +16,7 @@ import LoadFailSnackbar from './components/LoadFailSnackbar';
 
 import { getCountsPerMPForDateRange, getCurrentMPs } from './services';
 import WhatSayYourMPLogo from './svgs/WhatSayYourMPLogo';
+import FAQ from './components/FAQ/FAQ';
 
 export default function App() {
   const [authors, setAuthors] = useState([] as MP[]);
@@ -112,7 +113,7 @@ export default function App() {
           </p>
         </div>
         <div>
-          <h2>Overall Statistics</h2>
+          <h2>Participation Counts By Type</h2>
           {!isAtLeastOneMPSelected && !isCountLoading && (
             <div>
               <p style={{ paddingTop: 10 }}> Please Select Some MPs</p>
@@ -134,11 +135,15 @@ export default function App() {
           selectEndDateForCount={selectEndDateForCount}
           isLoading={isCountLoading}
         />
+        <FAQ />
         <footer style={{ paddingLeft: 10, paddingRight: 10, paddingTop: 5 }}>
           <p>
-            This is a community-led project - the contributors have no link with the Singapore Government.
-            It is made for the collective knowledge of Singaporeans and the betterment
-            of Singaporean Democracy 🇸🇬
+            This is a community-led project - the contributors have no link with
+            the Singapore Government, and this website must NOT be relied upon as
+            an authoritative source of information (use the Hansards for that).
+            <br />
+            It is simply built to increase awareness of Singaporeans to
+            what MPs do in Parliament. 🇸🇬
           </p>
           <p>
             Please submit bugs, feature requests, and general feedback{' '}
