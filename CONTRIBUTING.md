@@ -6,7 +6,9 @@ The team currently owning & maintaining this project is very small, so just drop
 
 ## Testing
 
-We have no automated tests at the moment, but PRs for extracting heavy business logic away into their separate utils and adding unit tests for them are welcome :)
+The rule of thumb is to extract heavy business logic for one page away into their individual `logic.ts` files, and then add unit tests for verifying the edge cases for each function. If these unit tests fail, the GitHub Actions workflow for deploying the website will fail.
+
+Didn't choose to do automated UI testing for now, since this project's relative simplicity has not required it yet.
 
 ## Deploying
 
