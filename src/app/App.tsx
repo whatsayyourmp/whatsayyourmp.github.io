@@ -111,7 +111,7 @@ export default function App() {
           </div>
           <p style={{ padding: 10, paddingLeft: 15, paddingRight: 15 }}>
             This project uses the{' '}
-            <a href="https://www.parliament.gov.sg/parliamentary-business/official-reports-(parl-debates)">
+            <a target="_blank" href="https://www.parliament.gov.sg/parliamentary-business/official-reports-(parl-debates)">
               official reports
             </a>{' '}
             of each parliamentary session to collect debate records, a.k.a.

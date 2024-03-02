@@ -30,7 +30,7 @@ const FAQ = () => {
           </ListItemButton>
           <Collapse in={isHowToFindMPOpen} timeout="auto" unmountOnExit style={{ paddingLeft: 20, paddingRight: 20, padding: 10 }}>
             <p>
-              The <a href="https://www.parliament.gov.sg/mps/find-mps-in-my-constituency">Singapore Parliament website</a>
+              The <a target="_blank" href="https://www.parliament.gov.sg/mps/find-mps-in-my-constituency">Singapore Parliament website</a>
               {' '}has you covered! Input your zip code and it will automatically resolve the MP(s) serving you.
             </p>
           </Collapse>
@@ -56,7 +56,7 @@ const FAQ = () => {
               <br />
               <br />
               <p style={{ width: '50%', margin: '0 auto' }}>
-                How to search on <a href="https://sprs.parl.gov.sg/search/#/home">Hansards</a>:
+                How to search on <a target="_blank" href="https://sprs.parl.gov.sg/search/#/home">Hansards</a>:
                 <ol style={{ textAlign: 'left' }}>
                   <li>
                     Choose the parliament you want to search on, using the {APOSTROPHE}By Parliament{APOSTROPHE} selections
@@ -106,7 +106,7 @@ const FAQ = () => {
                       Responses to written questions are shared with Members and recorded in the Official Report.
                       <br />
                       <br />
-                      <a href="https://www.parliament.gov.sg/parliamentary-business/glossary/Details/question-for-oral-written-answer/Question%20for%20Oral">Reference</a>
+                      <a target="_blank" href="https://www.parliament.gov.sg/parliamentary-business/glossary/Details/question-for-oral-written-answer/Question%20for%20Oral">Reference</a>
                     </TableCell>
                   </TableRow>
                   <TableRow
@@ -131,7 +131,7 @@ const FAQ = () => {
                       review the Government{APOSTROPHE}s plans outlined in the Address.
                       <br />
                       <br />
-                      <a href="https://www.parliament.gov.sg/parliamentary-business/glossary/Details/president's-address/President's%20Address">Reference</a>
+                      <a target="_blank" href="https://www.parliament.gov.sg/parliamentary-business/glossary/Details/president's-address/President's%20Address">Reference</a>
                     </TableCell>
                   </TableRow>
                   <TableRow
@@ -145,7 +145,7 @@ const FAQ = () => {
                       then considers the Supply Bill to authorize fund withdrawals as outlined in the Budget.
                       <br />
                       <br />
-                      <a href="https://www.parliament.gov.sg/parliamentary-business/glossary/Details/budget/Budget">Reference</a>
+                      <a target="_blank" href="https://www.parliament.gov.sg/parliamentary-business/glossary/Details/budget/Budget">Reference</a>
                     </TableCell>
                   </TableRow>
                   <TableRow
@@ -156,7 +156,7 @@ const FAQ = () => {
                       A statement may be made by a Minister in Parliament on a matter of public importance. Members may seek clarification on the statement but no debate shall be allowed thereon.
                       <br />
                       <br />
-                      <a href="https://www.parliament.gov.sg/docs/default-source/default-document-library/standing-orders-of-the-parliament-of-singapore43d430dbcb5f64e2b198ff00006af031.pdf">
+                      <a target="_blank" href="https://www.parliament.gov.sg/docs/default-source/default-document-library/standing-orders-of-the-parliament-of-singapore43d430dbcb5f64e2b198ff00006af031.pdf">
                         Reference: Parliament Standing Orders, section on Ministerial Statements
                       </a>
                     </TableCell>
@@ -173,7 +173,7 @@ const FAQ = () => {
                       which has been misunderstood or misinterpreted.
                       <br />
                       <br />
-                      <a href="https://www.parliament.gov.sg/parliamentary-business/glossary/Details/point-of-clarification/Point%20of%20Clarification">
+                      <a target="_blank" href="https://www.parliament.gov.sg/parliamentary-business/glossary/Details/point-of-clarification/Point%20of%20Clarification">
                         Reference
                       </a>
                     </TableCell>
@@ -186,7 +186,7 @@ const FAQ = () => {
                       It is a draft law. Bills introduced by the Government are known as Government Bills. Those introduced by back benchers are known as private Member{APOSTROPHE}s Bills.
                       <br />
                       <br />
-                      <a href="https://www.parliament.gov.sg/parliamentary-business/glossary/Details/bill/Bill">Reference</a>
+                      <a target="_blank" href="https://www.parliament.gov.sg/parliamentary-business/glossary/Details/bill/Bill">Reference</a>
                     </TableCell>
                   </TableRow>
                   {/* <TableRow
@@ -197,7 +197,7 @@ const FAQ = () => {
                         It is a draft law. Bills introduced by the Government are known as Government Bills. Those introduced by back benchers are known as private Member{APOSTROPHE}s Bills.
                         <br />
                         <br />
-                        <a href="https://www.parliament.gov.sg/parliamentary-business/glossary/Details/bill/Bill">Reference</a>
+                        <a target="_blank" href="https://www.parliament.gov.sg/parliamentary-business/glossary/Details/bill/Bill">Reference</a>
                       </TableCell>
                     </TableRow> */}
                   <TableRow
@@ -211,7 +211,7 @@ const FAQ = () => {
                       The Member must give at least three clear days{APOSTROPHE} notice of the subject matter to be raised.
                       <br />
                       <br />
-                      <a href="https://www.parliament.gov.sg/parliamentary-business/glossary/Details/right-to-raise-a-matter-on-a-motion-for-adjournment/Right%20to%20Raise%20a%20Matter%20on%20a%20Motion%20for%20Adjournment">Reference</a>
+                      <a target="_blank" href="https://www.parliament.gov.sg/parliamentary-business/glossary/Details/right-to-raise-a-matter-on-a-motion-for-adjournment/Right%20to%20Raise%20a%20Matter%20on%20a%20Motion%20for%20Adjournment">Reference</a>
                     </TableCell>
                   </TableRow>
                   <TableRow
@@ -222,7 +222,7 @@ const FAQ = () => {
                       A proposal for the House to do something, to order something to be done or to express an opinion on a matter. All questions which come before Parliament or Committee for decision originate from a motion.
                       <br />
                       <br />
-                      <a href="https://www.parliament.gov.sg/parliamentary-business/glossary/Details/motion/Motion">Reference</a>
+                      <a target="_blank" href="https://www.parliament.gov.sg/parliamentary-business/glossary/Details/motion/Motion">Reference</a>
                     </TableCell>
                   </TableRow>
                   <TableRow
@@ -240,7 +240,7 @@ const FAQ = () => {
                       or any new information that is not necessary to correct the factual error.
                       <br />
                       <br />
-                      <a href="https://www.parliament.gov.sg/docs/default-source/default-document-library/standing-orders-of-the-parliament-of-singapore43d430dbcb5f64e2b198ff00006af031.pdf">
+                      <a target="_blank" href="https://www.parliament.gov.sg/docs/default-source/default-document-library/standing-orders-of-the-parliament-of-singapore43d430dbcb5f64e2b198ff00006af031.pdf">
                         Reference: Parliament Standing Orders, section on Official Reports
                       </a>
                     </TableCell>
@@ -261,7 +261,7 @@ const FAQ = () => {
                       During a sitting, any Member may bring to the Speaker{APOSTROPHE}s immediate notice any breach of order or rules of the House. A Member is entitled in such cases to interrupt the proceedings by rising and saying, “On a point of order, Mr Speaker” and briefly state his point of order. No speeches are allowed.
                       <br />
                       <br />
-                      <a href="https://www.parliament.gov.sg/parliamentary-business/glossary/Details/point-of-order/Point%20of%20Order">Reference</a>
+                      <a target="_blank" href="https://www.parliament.gov.sg/parliamentary-business/glossary/Details/point-of-order/Point%20of%20Order">Reference</a>
                     </TableCell>
                   </TableRow>
                   <TableRow
@@ -272,7 +272,7 @@ const FAQ = () => {
                       In Singapore, a person or corporation may submit a petition to the House through a Member. Besides stating grievances, the petition should also state the remedies which are sought.
                       <br />
                       <br />
-                      <a href="https://www.parliament.gov.sg/parliamentary-business/glossary/Details/petition/Petition">Reference</a>
+                      <a target="_blank" href="https://www.parliament.gov.sg/parliamentary-business/glossary/Details/petition/Petition">Reference</a>
                     </TableCell>
                   </TableRow>
                   {/* <TableRow
@@ -299,7 +299,7 @@ const FAQ = () => {
                       A short statement by a Member to explain, excuse, justify or apologise for his conduct with regard to a particular question or occasion, or to correct an alleged misrepresentation. No debate takes place on the explanation. Permission to make a personal explanation must be obtained from the Speaker.
                       <br />
                       <br />
-                      <a href="https://www.parliament.gov.sg/parliamentary-business/glossary/Details/personal-explanation/Personal%20Explanation">Reference</a>
+                      <a target="_blank" href="https://www.parliament.gov.sg/parliamentary-business/glossary/Details/personal-explanation/Personal%20Explanation">Reference</a>
                     </TableCell>
                   </TableRow>
                 </TableBody>
