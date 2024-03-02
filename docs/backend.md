@@ -10,3 +10,5 @@ At a high level, the Data Refresher runs on a monthly cadence to refresh data fr
 These data is then transformed & persisted into their respective Cloud Firestore tables.
 The CountController is then responsible for performing on-the-fly tabulation of these counts.
 Counts are precomputed and cached in the CountController at init time to minimize latency as well.
+
+The CountController APIs and their interfaces can in turn be found in the corresponding [Axios service file](https://github.com/whatsayyourmp/whatsayyourmp.github.io/blob/main/src/app/services/index.ts).
